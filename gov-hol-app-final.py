@@ -4,17 +4,17 @@ from datetime import datetime
 import argparse 
 
 # Converts the input date into a python datetime object
-# def search_england_and_wales_public_holidays(from_input_date_as_string, england_holiday_json):
-#     # Define format for the input date
-#     gov_holiday_date_date_format = '%Y-%m-%d'
+def search_england_and_wales_public_holidays(from_input_date_as_string, england_holiday_json):
+    # Define format for the input date
+    gov_holiday_date_date_format = '%Y-%m-%d'
 
-#     for event in england_holiday_json['event']:
-#         current_event_date_string = event['date']
+    for event in england_holiday_json['events']:
+        current_event_date_string = event['date']
 
-#         current_event_date = datetime.strptime(current_event_date_string, gov_holiday_date_date_format)
-#         input_date = datetime.strptime(from_input_date_as_string, gov_holiday_date_date_format)
-#         if input_date < current_event_date:
-#             print(event['title']+ ' : ' + event['date'])
+        current_event_date = datetime.strptime(current_event_date_string, gov_holiday_date_date_format)
+        input_date = datetime.strptime(from_input_date_as_string, gov_holiday_date_date_format)
+        if input_date < current_event_date:
+            print(event['title']+ ' : ' + event['date'])
 
 
 
@@ -52,18 +52,6 @@ england_holiday_json = gov_holiday_data_json["england-and-wales"]
 
 # Gives all the public holidays past a certain date 
 # Maybe we should but in a range here, start date and then an end date 
-
-def search_england_and_wales_public_holidays(from_input_date_as_string, england_holiday_json):
-    # Define format for the input date
-    gov_holiday_date_date_format = '%Y-%m-%d'
-
-    for event in england_holiday_json["event"]:
-        current_event_date_string = event['date']
-
-        current_event_date = datetime.strptime(current_event_date_string, gov_holiday_date_date_format)
-        input_date = datetime.strptime(from_input_date_as_string, gov_holiday_date_date_format)
-        if input_date < current_event_date:
-            print(event['title']+ ' : ' + event['date'])
 
             
 # Example 
